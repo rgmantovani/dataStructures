@@ -1,0 +1,6 @@
+* Links interessantes
+
+https://rogerdudler.github.io/git-guide/index.pt_BR.html
+https://git-scm.com/book/pt-br/v1/Primeiros-passos-Noções-Básicas-de-Git
+https://try.github.io
+https://guides.github.com/introduction/git-handbook/
