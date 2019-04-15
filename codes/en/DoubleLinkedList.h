@@ -1,9 +1,6 @@
 //
 //  DoubleLinkedList.h
-//  DoubleLinkageList
-//
 //  Created by Rafael Gomes Mantovani on 15/04/19.
-//  Copyright © 2019 Rafael Gomes Mantovani. All rights reserved.
 //
 
 #ifndef DoubleLinkedList_h

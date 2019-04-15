@@ -1,10 +1,6 @@
 //
 //  ListaDupla.h
-//  DoubleLinkageList
-//
 //  Created by Rafael Gomes Mantovani on 15/04/19.
-//  Copyright © 2019 Rafael Gomes Mantovani. All rights reserved.
-//
 
 #ifndef ListaDupla_h
 #define ListaDupla_h
@@ -30,18 +26,18 @@ typedef struct {
     int tamanho;
 } ListaDupla;
 
-void iniciaLista(DoubleLinkedList *list);
-void imprimeLista(DoubleLinkedList *list);
-void imprimeListaReversa(DoubleLinkedList *list);
-void destroiLista(DoubleLinkedList *list);
-bool insere(DoubleLinkedList *list, Item x);
-bool estaVazia(DoubleLinkedList *list);
-bool pesquisa(DoubleLinkedList *list, int key);
-bool removeElemento(DoubleLinkedList *list, int key, Item *item);
-bool removePrimeiro(DoubleLinkedList *list, Item *item);
-bool removeUltimo(DoubleLinkedList *list, Item *item);
-int tamanhoLista(DoubleLinkedList *list);
-Item primeiro(DoubleLinkedList *list);
-Item ultimo(DoubleLinkedList *list);
+void iniciaLista(ListaDupla *list);
+void imprimeLista(ListaDupla *list);
+void imprimeListaReversa(ListaDupla *list);
+void destroiLista(ListaDupla *list);
+bool insere(ListaDupla *list, Item x);
+bool estaVazia(ListaDupla *list);
+bool pesquisa(ListaDupla *list, int key);
+bool removeElemento(ListaDupla *list, int key, Item *item);
+bool removePrimeiro(ListaDupla *list, Item *item);
+bool removeUltimo(ListaDupla *list, Item *item);
+int tamanhoLista(ListaDupla *list);
+Item primeiro(ListaDupla *list);
+Item ultimo(ListaDupla *list);
 
 #endif /* ListaDupla_h */
