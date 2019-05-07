@@ -1,0 +1,4 @@
+celula,2,3,4
+arvores,1
+chave,2,3,5
+busca,1
