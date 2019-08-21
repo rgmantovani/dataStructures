@@ -13,11 +13,11 @@
 typedef struct {
   int chave;
   /* podemos adicionar mais coisas aqui */
-} Item;
+} Objeto;
 
 /* tipo abstrato de pilha */
 typedef struct {
-  Item array[MAXTAM];
+  Objeto array[MAXTAM];
   int topo;
 } pilhaEstatica;
 
@@ -26,10 +26,10 @@ typedef struct {
 void iniciaPilha(pilhaEstatica *pilha);
 int estaVazia(pilhaEstatica *pilha);
 int estaCheia(pilhaEstatica *pilha) ;
-void empilha(Item item, pilhaEstatica *pilha);
-void desempilha(Item *item, pilhaEstatica *pilha);
+void empilha(Objeto item, pilhaEstatica *pilha);
+void desempilha(Objeto *item, pilhaEstatica *pilha);
 int tamanhoPilha(pilhaEstatica *pilha);
-Item topo(pilhaEstatica *pilha);
+Objeto topo(pilhaEstatica *pilha);
 void imprimePilha(pilhaEstatica *pilha);
 
 #endif /* pilhaEstatica_h */
