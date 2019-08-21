@@ -1,7 +1,3 @@
-//
-//  dynamicStack.h
-//  Created by Rafael Gomes Mantovani on 25/03/19.
-
 #ifndef dynamicStack_h
 #define dynamicStack_h
 
@@ -10,27 +6,26 @@
 
 typedef struct {
     int key;
-    /* outros componentes */
-} Item;
+} Object;
 
-typedef struct Node *Pointer;
+typedef struct StackNode *Pointer;
 
-typedef struct Node{
-    Item item;
+typedef struct StackNode{
+    Object obj;
     Pointer next;
-} Node;
+} StackNode;
 
 typedef struct {
     Pointer top;
     int size;
 } DynamicStack;
 
-void init(DynamicStack *pilha);
-int isEmpty(DynamicStack *pilha);
-void push(Item item, DynamicStack *pilha);
-void pop(DynamicStack *pilha, Item *item);
-int size(DynamicStack *pilha);
-void top(DynamicStack *pilha, Item *item);
-void print(DynamicStack *pilha);
+void init(DynamicStack *stack);
+int isEmpty(DynamicStack *stack);
+void push(Object obj, DynamicStack *stack);
+void pop(DynamicStack *stack, Object *obj);
+int size(DynamicStack *stack);
+void top(DynamicStack *stack, Object *obj);
+void print(DynamicStack *stack);
 
 #endif /* dynamicStack_h */

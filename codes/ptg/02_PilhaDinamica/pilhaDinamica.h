@@ -1,10 +1,3 @@
-//
-//  pilhaDinamica.h
-//  DynamicStack
-//
-//  Created by Rafael Gomes Mantovani on 28/03/19.
-//  Copyright © 2019 Rafael Gomes Mantovani. All rights reserved.
-//
 
 #ifndef pilhaDinamica_h
 #define pilhaDinamica_h
@@ -14,27 +7,26 @@
 
 typedef struct {
     int chave;
-    /* outros componentes */
-} Item;
+} Objeto;
 
 typedef struct NoPilha *Ponteiro;
 
 typedef struct NoPilha{
-    Item item;
-    Ponteiro proximo;
+  Objeto obj;
+  Ponteiro proximo;
 } NoPilha;
 
 typedef struct {
-    Ponteiro topo;
-    int tamanho;
+  Ponteiro topo;
+  int tamanho;
 } pilhaDinamica;
 
 void iniciaPilha(pilhaDinamica *pilha);
 int estaVazia(pilhaDinamica *pilha);
-void empilha(Item item, pilhaDinamica *pilha);
-void desempilha(pilhaDinamica *pilha, Item *item);
+void empilha(Objeto obj, pilhaDinamica *pilha);
+void desempilha(pilhaDinamica *pilha, Objeto *obj);
 int tamanhoPilha(pilhaDinamica *pilha);
-void topo(pilhaDinamica *pilha, Item *item);
+void topo(pilhaDinamica *pilha, Objeto *obj);
 void imprimePilha(pilhaDinamica *pilha);
 
 #endif /* pilhaDinamica_h */
