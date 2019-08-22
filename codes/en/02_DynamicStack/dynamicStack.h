@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct {
     int key;
@@ -21,7 +22,7 @@ typedef struct {
 } DynamicStack;
 
 void init(DynamicStack *stack);
-int isEmpty(DynamicStack *stack);
+bool isEmpty(DynamicStack *stack);
 void push(Object obj, DynamicStack *stack);
 void pop(DynamicStack *stack, Object *obj);
 int size(DynamicStack *stack);

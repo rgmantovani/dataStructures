@@ -8,7 +8,7 @@ int tamanhoPilha(pilhaDinamica *pilha) {
   // adicione seu codigo aqui
 }
 
-int estaVazia(pilhaDinamica *pilha) {
+bool estaVazia(pilhaDinamica *pilha) {
   // adicione seu codigo aqui
 }
 

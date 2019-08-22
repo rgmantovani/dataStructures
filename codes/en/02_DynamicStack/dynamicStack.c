@@ -8,7 +8,7 @@ int size(DynamicStack *stack) {
   // add your code here
 }
 
-int isEmpty(DynamicStack *stack) {
+bool isEmpty(DynamicStack *stack) {
   // add your code here
 }
 

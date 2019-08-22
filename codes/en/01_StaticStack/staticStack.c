@@ -4,11 +4,11 @@ void init(StaticStack *stack) {
   // add your code here
 }
 
-int isEmpty(StaticStack *stack) {
+bool isEmpty(StaticStack *stack) {
   // add your code here
 }
 
-int isFull(StaticStack *stack) {
+bool isFull(StaticStack *stack) {
   // add your code here
 }
 

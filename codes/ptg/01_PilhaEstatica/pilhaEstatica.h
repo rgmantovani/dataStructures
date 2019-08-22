@@ -6,6 +6,8 @@
 #define pilhaEstatica_h
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
 #define MAXTAM 100
 
@@ -24,8 +26,8 @@ typedef struct {
 
 /* funções de manipulação */
 void iniciaPilha(pilhaEstatica *pilha);
-int estaVazia(pilhaEstatica *pilha);
-int estaCheia(pilhaEstatica *pilha) ;
+bool estaVazia(pilhaEstatica *pilha);
+bool estaCheia(pilhaEstatica *pilha) ;
 void empilha(Objeto item, pilhaEstatica *pilha);
 void desempilha(Objeto *item, pilhaEstatica *pilha);
 int tamanhoPilha(pilhaEstatica *pilha);

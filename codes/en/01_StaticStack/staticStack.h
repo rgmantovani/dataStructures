@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define MAXTAM 100
 
@@ -29,8 +30,8 @@ typedef struct {
 
 /* funções de manipulação */
 void init(StaticStack *stack);
-int isEmpty(StaticStack *stack);
-int isFull(StaticStack *stack) ;
+bool isEmpty(StaticStack *stack);
+bool isFull(StaticStack *stack) ;
 void push(Object obj, StaticStack *stack);
 void pop(StaticStack *stack, Object *obj);
 int size(StaticStack *stack);

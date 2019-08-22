@@ -4,11 +4,11 @@ void iniciaPilha(pilhaEstatica *pilha) {
   // adicione seu codigo aqui
 }
 
-int estaVazia(pilhaEstatica *pilha) {
+bool estaVazia(pilhaEstatica *pilha) {
   // adicione seu codigo aqui
 }
 
-int estaCheia(pilhaEstatica *pilha) {
+bool estaCheia(pilhaEstatica *pilha) {
   // adicione seu codigo aqui
 }
 

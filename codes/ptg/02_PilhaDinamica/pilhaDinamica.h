@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct {
     int chave;
@@ -22,7 +23,7 @@ typedef struct {
 } pilhaDinamica;
 
 void iniciaPilha(pilhaDinamica *pilha);
-int estaVazia(pilhaDinamica *pilha);
+bool estaVazia(pilhaDinamica *pilha);
 void empilha(Objeto obj, pilhaDinamica *pilha);
 void desempilha(pilhaDinamica *pilha, Objeto *obj);
 int tamanhoPilha(pilhaDinamica *pilha);
