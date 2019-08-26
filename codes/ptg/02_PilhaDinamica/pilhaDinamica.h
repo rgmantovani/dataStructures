@@ -10,24 +10,24 @@ typedef struct {
     int chave;
 } Objeto;
 
-typedef struct NoPilha *Ponteiro;
+typedef struct NoPilha *PtrNoPilha;
 
 typedef struct NoPilha{
   Objeto obj;
-  Ponteiro proximo;
+  PtrNoPilha proximo;
 } NoPilha;
 
 typedef struct {
-  Ponteiro topo;
+  PtrNoPilha topo;
   int tamanho;
-} pilhaDinamica;
+} PilhaDinamica;
 
-void iniciaPilha(pilhaDinamica *pilha);
-bool estaVazia(pilhaDinamica *pilha);
-void empilha(Objeto obj, pilhaDinamica *pilha);
-void desempilha(pilhaDinamica *pilha, Objeto *obj);
-int tamanhoPilha(pilhaDinamica *pilha);
-void topo(pilhaDinamica *pilha, Objeto *obj);
-void imprimePilha(pilhaDinamica *pilha);
+void iniciaPilha(PilhaDinamica *p);
+bool estaVazia(PilhaDinamica *p);
+void empilha(Objeto obj, PilhaDinamica *p);
+void desempilha(PilhaDinamica *p, Objeto *obj);
+int tamanhoPilha(PilhaDinamica *p);
+void topo(PilhaDinamica *p, Objeto *obj);
+void imprimePilha(PilhaDinamica *p);
 
 #endif /* pilhaDinamica_h */

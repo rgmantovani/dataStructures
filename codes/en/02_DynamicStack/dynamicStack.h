@@ -9,15 +9,15 @@ typedef struct {
     int key;
 } Object;
 
-typedef struct StackNode *Pointer;
+typedef struct StackNode *PtrStackNode;
 
 typedef struct StackNode{
     Object obj;
-    Pointer next;
+    PtrStackNode next;
 } StackNode;
 
 typedef struct {
-    Pointer top;
+    PtrStackNode top;
     int size;
 } DynamicStack;
 
