@@ -1,11 +1,3 @@
-//
-//  filaDinamica.h
-//  DynamicQueue
-//
-//  Created by Rafael Gomes Mantovani on 03/04/19.
-//  Copyright © 2019 Rafael Gomes Mantovani. All rights reserved.
-//
-
 #ifndef filaDinamica_h
 #define filaDinamica_h
 
@@ -15,28 +7,29 @@
 typedef struct {
   int chave;
   /* outros componentes */
-} Item;
+} Objeto;
 
-typedef struct NoFila *Ponteiro;
+typedef struct NoFila *PtrNoFila;
 
 typedef struct NoFila{
-  Item item;
-  Ponteiro proximo;
+  Objeto obj;
+  PtrNoFila proximo;
 } NoFila;
 
 typedef struct {
-  Ponteiro inicio;
-  Ponteiro fim;
+  PtrNoFila inicio;
+  PtrNoFila fim;
   int tamanho;
 } FilaDinamica;
 
 void iniciaFila(FilaDinamica *fila);
-void enfileira(Item x, FilaDinamica *fila);
-void desenfileira(FilaDinamica *fila, Item *x);
 void imprimeFila(FilaDinamica *fila);
+void enfileira(Objeto x, FilaDinamica *fila);
+void desenfileira(FilaDinamica *fila, Objeto *x);
+//Objeto desenfileira(FilaDinamica *fila);
 int estaVazia(FilaDinamica *fila);
 int tamanhoFila(FilaDinamica *fila);
-Item inicioFila(FilaDinamica *fila);
-Item fimFila(FilaDinamica *fila);
+Objeto inicioFila(FilaDinamica *fila);
+Objeto fimFila(FilaDinamica *fila);
 
 #endif /* filaDinamica_h */

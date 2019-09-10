@@ -1,11 +1,3 @@
-//
-//  dynamicQueue.h
-//  DynamicQueue
-//
-//  Created by Rafael Gomes Mantovani on 03/04/19.
-//  Copyright © 2019 Rafael Gomes Mantovani. All rights reserved.
-//
-
 #ifndef dynamicQueue_h
 #define dynamicQueue_h
 
@@ -34,6 +26,7 @@ void initQueue(DynamicQueue *queue);
 void enqueue(Item x, DynamicQueue *queue);
 void dequeue(DynamicQueue *queue, Item *x);
 void printQueue(DynamicQueue *queue);
+void destroy(DynamicQueue *queue);
 int isEmpty(DynamicQueue *queue);
 int size(DynamicQueue *queue);
 Item first(DynamicQueue *queue);
