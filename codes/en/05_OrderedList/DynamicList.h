@@ -9,16 +9,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct  {
     int key;
 //    char *name;
-} Item;
+} Object;
 
 typedef struct NodeList *Pointer;
 
 typedef struct NodeList {
-  Item element;
+  Object element;
   Pointer next;
 } NodeList;
 
@@ -29,17 +30,17 @@ typedef struct {
 
 
 void initList(List *list);
-void insert(List *list, Item x);
+void insert(List *list, Object x);
 void printList(List *list);
 void destroyList(List *list);
-int isEmpty(List *list);
-int search(List *list, int key);
-int searchFaster(List *list, int key);
+bool isEmpty(List *list);
+bool search(List *list, int key);
+bool searchFaster(List *list, int key);
 int size(List *list);
-void removeElement(List *list, int key, Item *item);
-void removeFirst(List *list, Item *item);
-void removeLast(List *list, Item *item);
-Item first(List *list);
-Item last(List *list);
+void removeElement(List *list, int key, Object *item);
+void removeFirst(List *list, Object *item);
+void removeLast(List *list, Object *item);
+Object first(List *list);
+Object last(List *list);
 
 #endif /* DynamicList_h */
