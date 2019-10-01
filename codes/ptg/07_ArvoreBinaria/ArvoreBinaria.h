@@ -10,32 +10,32 @@
 
 typedef struct{
     int chave;
-} Item;
+} Objeto;
 
-typedef struct NodeTree *PonteiroArvore;
+typedef struct NodeTree *PtrArvore;
 
 typedef struct NoArvore {
-    Item elemento;
-    PonteiroArvore left;
-    PonteiroArvore right;
+    Objeto elemento;
+    PtrArvore left;
+    PtrArvore right;
 } NoArvore;
 
-int numeroNosArvore(PonteiroArvore *node);
-int alturaArvore(PonteiroArvore *node);
-void iniciaArvore(PonteiroArvore *node);
-void destroiArvore(PonteiroArvore *node);
-void preOrdem(PonteiroArvore *node);
-void posOrdem(PonteiroArvore *node);
-void EmOrdem(PonteiroArvore *node);
-bool insereItem(PonteiroArvore *node, Item x);
-bool procuraItem(PonteiroArvore *node, int key, Item *ret);
-bool estaVazia(PonteiroArvore *node);
-bool removeItem(PonteiroArvore *node, int key);
-PonteiroArvore maximo(PonteiroArvore *node);
-PonteiroArvore maximoIterativo(PonteiroArvore *node);
-PonteiroArvore minimo(PonteiroArvore *node);
-PonteiroArvore minimoIterativo(PonteiroArvore *node);
-PonteiroArvore getMinAux(PonteiroArvore *node); //usado na remoção
-PonteiroArvore getMaxAux(PonteiroArvore *node); //usado na remoção
+int numeroNosArvore(PtrArvore *node);
+int alturaArvore(PtrArvore *node);
+void iniciaArvore(PtrArvore *node);
+void destroiArvore(PtrArvore *node);
+void preOrdem(PtrArvore *node);
+void posOrdem(PtrArvore *node);
+void EmOrdem(PtrArvore *node);
+bool insereItem(PtrArvore *node, Objeto x);
+bool procuraItem(PtrArvore *node, int key, Objeto *ret);
+bool estaVazia(PtrArvore *node);
+bool removeItem(PtrArvore *node, int key);
+PtrArvore maximo(PtrArvore *node);
+PtrArvore maximoIterativo(PtrArvore *node);
+PtrArvore minimo(PtrArvore *node);
+PtrArvore minimoIterativo(PtrArvore *node);
+PtrArvore getMinAux(PtrArvore *node); //usado na remoção
+PtrArvore getMaxAux(PtrArvore *node); //usado na remoção
 
 #endif /* ArvoreBinaria_h */

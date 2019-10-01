@@ -15,32 +15,32 @@
 
 typedef struct{
   int key;
-} Item;
+} Object;
 
-typedef struct NodeTree *Pointer;
+typedef struct NodeTree *PtrTree;
 
 typedef struct NodeTree {
-  Item element;
-  Pointer left;
-  Pointer right;
+  Object element;
+  PtrTree left;
+  PtrTree right;
 } NodeTree;
 
-int sizeTree(Pointer *node);
-int maxDepth(Pointer *node);
-void initTree(Pointer *node);
-void destroyTree(Pointer *node);
-void preOrder(Pointer *node);
-void posOrder(Pointer *node);
-void inOrder(Pointer *node);
-bool insertItem(Pointer *node, Item x);
-bool findItem(Pointer *node, int key, Item *ret);
-bool isEmpty(Pointer *node);
-bool removeItem(Pointer *node, int key);
-Pointer maximum(Pointer *node);
-Pointer maximumIterative(Pointer *node);
-Pointer minimum(Pointer *node);
-Pointer minimumIterative(Pointer *node);
-Pointer getMinAux (Pointer *node); //usado na remoção
-Pointer getMaxAux (Pointer *node); //usado na remoção
+int sizeTree(PtrTree *node);
+int maxDepth(PtrTree *node);
+void initTree(PtrTree *node);
+void destroyTree(PtrTree *node);
+void preOrder(PtrTree *node);
+void posOrder(PtrTree *node);
+void inOrder(PtrTree *node);
+bool insertItem(PtrTree *node, Object x);
+bool findItem(PtrTree *node, int key, Object *ret);
+bool isEmpty(PtrTree *node);
+bool removeItem(PtrTree *node, int key);
+PtrTree maximum(PtrTree *node);
+PtrTree maximumIterative(PtrTree *node);
+PtrTree minimum(PtrTree *node);
+PtrTree minimumIterative(PtrTree *node);
+PtrTree getMinAux (PtrTree *node); //usado na remoção
+PtrTree getMaxAux (PtrTree *node); //usado na remoção
 
 #endif /* BinaryTree_h */
