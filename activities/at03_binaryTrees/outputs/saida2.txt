@@ -1,0 +1,6 @@
+brasil,4,7
+cafe,1,2,3,4,5,6,7
+municipio,5,6
+sacas,4
+soja,3
+xicara,

@@ -1,0 +1,33 @@
+<termos:cafe,soja,Brasil,sacas,municipio,xicara>
+<page:1>
+O cafe e uma bebida produzida a partir dos graos torrados do fruto do cafeeiro.
+E servido tradicionalmente quente, mas tambem pode ser consumido gelado.
+O cafe e um estimulante, por possuir cafeina, geralmente 80 a 140 mg para cada 207 ml
+dependendo do metodo de preparacao.
+<page:2>
+Estudos tem mostrado que pessoas que bebem quatro xicaras de cafe por dia tem um menor
+risco de morrer de um ataque cardiaco.
+<page:3>
+Em alguns periodos da decada de 1980, o cafe era a segunda mercadoria mais negociada no
+mundo por valor monetario, atras apenas do petroleo. Este dado estatistico ainda e
+amplamente citado, mas tem sido impreciso por cerca de duas decadas, devido a queda
+do preco do cafe durante a crise do produto na decada de 1990, reduzindo o valor total
+de suas exportacoes. Em 2003, o cafe foi o setimo produto agricola de exportacao mais
+importante em termos de valor, atras de culturas como trigo, milho e soja.
+<page:4>
+Minas Gerais e o estado com maior produção de cafe do Brasil com 26,6 milhões de sacas,
+o que corresponde a mais de 50 por cento da producao nacional do produto e 17 por cento
+da producao mundial.
+<page:5>
+O municipio de Patrocinio, em Minas Gerais, saltou tres posições e assumiu a liderança
+no ranking de produtores do grao. Em 2012, a safra de cafe atingiu 64.789 mil toneladas
+naquele municipio. As informacoes sao da Pesquisa Agricola Municipal, divulgada pelo
+Instituto Brasileiro de Geografia e Estatistica.
+<page:6>
+Na comparacao por especie, o municipio de Patrocinio e o lider em cafe arabica. No
+cafe robusta ou conilon, o topo da lista e puxado por Jaguare. Ambos os municipios
+dedicam 100 por cento da producao a cada uma dessas especies.
+<page:7>
+No total, o Brasil produziu 3,037 milhoes de toneladas em 2012, uma queda de 12,5 em
+comparacao ao ano anterior. Desse volume, 2,278 milhoes de toneladas foram de cafe arabica,
+enquanto as outras 758,796 mil toneladas foram de robusta.
