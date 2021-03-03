@@ -28,5 +28,7 @@ void pop(DynamicStack *stack, Object *obj);
 int size(DynamicStack *stack);
 void top(DynamicStack *stack, Object *obj);
 void print(DynamicStack *stack);
+void destroy(DynamicStack *stack);
+void destroy2(DynamicStack *stack);
 
 #endif /* dynamicStack_h */
