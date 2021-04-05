@@ -1,7 +1,3 @@
-//  pilhaEstatica.h
-//  Stacks
-
-
 #ifndef pilhaEstatica_h
 #define pilhaEstatica_h
 

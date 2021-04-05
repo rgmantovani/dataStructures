@@ -29,5 +29,7 @@ void desempilha(PilhaDinamica *p, Objeto *obj);
 int tamanhoPilha(PilhaDinamica *p);
 void topo(PilhaDinamica *p, Objeto *obj);
 void imprimePilha(PilhaDinamica *p);
+void destroi(PilhaDinamica *p);
+void destroi2(PilhaDinamica *p);
 
 #endif /* pilhaDinamica_h */

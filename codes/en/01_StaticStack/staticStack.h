@@ -1,11 +1,3 @@
-//
-//  staticStack.h
-//  Stacks
-//
-//  Created by Rafael Gomes Mantovani on 22/03/19.
-//  Copyright © 2019 Rafael Gomes Mantovani. All rights reserved.
-//
-
 #ifndef staticStack_h
 #define staticStack_h
 
