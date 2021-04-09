@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -134,6 +133,97 @@ bool procuraArvore(PtrNoArvore *arvore, int x) {
 }
 
 // ---------------------------------------------
+// Funcoes auxiliares para remocao
+// ---------------------------------------------
+
+//tmp = getMinAux(&(*node)->filhoDireita);
+
+// ---------------------------------------------
+// ---------------------------------------------
+
+PtrNoArvore getMaxAux(PtrNoArvore *node) {
+  
+  PtrNoArvore ret;
+  // criterio de parada da recursao
+  // se filho direita do node == NULL
+  // eu achei o maior elemento
+  if((*node)->filhoDireita == NULL) {
+    ret = (*node);
+    // ajuste para remocao funcionar
+    // remover o elemento da sub-arvore de node
+    (*node) = (*node)->filhoEsquerda;
+    return(ret);
+  }
+  return(getMaxAux(&(*node)->filhoDireita));
+}
+
+// ---------------------------------------------
+// ---------------------------------------------
+
+bool removeArvore(PtrNoArvore *node, int x) {
+  
+  // se node == NULL, nao tem quem remover
+  // return (false)
+  if((*node) == NULL) {
+    printf("Warning: elemento %d não existe na árvore\n", x);
+    return(false);
+  }
+  
+  // Achei quem eu quero remover
+  // se node->chave == x
+  if((*node)->chave == x) {
+   
+    //criar uma variavel temp para desalocar memoria
+    PtrNoArvore tmp = (*node);
+
+    // caso 01 - sub-arvore esquerda do node é nula (direita nao)
+    if((*node)->filhoEsquerda == NULL && (*node)->filhoDireita !=NULL) {
+      (*node) = (*node)->filhoDireita;
+    }
+    
+    // caso 02 - sub-arvore direita do node é nula (esquerda nao)
+    else if((*node)->filhoEsquerda != NULL && (*node)->filhoDireita == NULL) {
+      (*node) = (*node)->filhoEsquerda;
+    }
+    // caso 03 - no folha (direita como esquerda sao nulos)
+    else if((*node)->filhoDireita == NULL && (*node)->filhoEsquerda == NULL) {
+      (*node) = NULL;
+    }
+    // *** caso 04 - direita e esquerda nao sao nulos
+    else {
+//      tmp = getMaxAux(sub-arvore esquerda);
+      tmp = getMaxAux(&(*node)->filhoEsquerda);
+//      tmp = getMinAux(&(*node)->filhoDireita);
+      (*node)->chave = tmp->chave;
+    }
+    
+    printf("Elemento %d removido com sucesso\n", x);
+    free(tmp);
+    return(true);
+  }
+  
+  // passos de recursao
+  if((*node)->chave > x) {
+    return (removeArvore(&(*node)->filhoEsquerda, x));
+  } else {
+    return(removeArvore(&(*node)->filhoDireita, x));
+  }
+}
+
+// ---------------------------------------------
+// ---------------------------------------------
+void destroiArvore(PtrNoArvore *node) {
+  // percurso
+  //percorrer a arvore e desalocar memoria de traz p frente
+  if((*node) != NULL) {
+    destroiArvore(&(*node)->filhoEsquerda);
+    destroiArvore(&(*node)->filhoDireita);
+    free(*node);
+    (*node) = NULL;
+  }
+}
+
+// ---------------------------------------------
 // main e teste de funcoes
 // ---------------------------------------------
 
@@ -161,38 +251,103 @@ int main(int argc, const char * argv[]) {
   insereArvore(&raiz, 8);
   insereArvore(&raiz, 12);
   
-  int vet[] = {3, 17, 12, -4};
-  int i;
-  for(i = 0; i < 4; i++) {
-    if(procuraArvore(&raiz, vet[i])){
-      printf("Elemento %d existe\n", vet[i]);
-    } else {
-      printf("Elemento %d nao existe\n", vet[i]);
-    }
-  } // v v v f
- 
   //            3
-  //       2        17
-  //    1       8      20
+  //       2         17
+  //    1       8        20
   //-3             12
-  
-//  Pre-ordem = {3, 2, 1, -3, 17, 8, 12, 20}
-//  Pos-ordem = {-3, 1, 2, 12, 8, 20, 17, 3}
-  // em-ordem = {-3, 1, 2, 3, 8, 12, 17, 20}
   
   printf("Pre-ordem ={");
   impressaoPreOrdem(&raiz);
   printf("}\n");
   
+  removeArvore(&raiz, 5);
   printf("Pre-ordem ={");
-  impressaoPosOrdem(&raiz);
+  impressaoPreOrdem(&raiz);
+  printf("}\n");
+    
+  // remover uma folha
+  removeArvore(&raiz, -3);
+  //            3
+  //       2         17
+  //    1       8        20
+  //              12
+  //
+  // 3, 2, 1, 17, 8, 12, 20
+  printf("Pre-ordem ={");
+  impressaoPreOrdem(&raiz);
   printf("}\n");
   
-//  // esta vazia!
-//  if(estaVaziaArvore(&raiz)) {
-//    printf("- Arvore está vazia!\n");
-//  } else {
-//    printf(" - Existe elemento dentro da árvore\n");
+  // remocao c sub-arvore direita nula
+  //            3
+  //       1         17
+  //            8        20
+  //              12
+  removeArvore(&raiz, 2);
+  //3, 1, 17, 8, 12, 20
+  printf("Pre-ordem ={");
+  impressaoPreOrdem(&raiz);
+  printf("}\n");
+  
+  // remocao c sub-arvore esquerda nula
+  //            3
+  //       1         17
+  //             12      20
+  // 3, 1, 17, 12, 20
+  removeArvore(&raiz, 8);
+  printf("Pre-ordem ={");
+  impressaoPreOrdem(&raiz);
+  printf("}\n");
+  
+  // remocao com sub-arvores nao nulas
+  //            1
+  //                 17
+  //             12      20
+  // 1, 17, 12, 20
+  removeArvore(&raiz, 3);
+  printf("Pre-ordem ={");
+  impressaoPreOrdem(&raiz);
+  printf("}\n");
+  //            1
+  //                 12
+  //                     20
+  // 1, 12, 20
+  removeArvore(&raiz, 17);
+  printf("Pre-ordem ={");
+  impressaoPreOrdem(&raiz);
+  printf("}\n");
+  
+  destroiArvore(&raiz);
+  if(estaVaziaArvore(&raiz)) {
+    printf("- Arvore está vazia!\n");
+  } else {
+    printf(" - Existe elemento dentro da árvore\n");
+  }
+  
+//  int vet[] = {3, 17, 12, -4};
+//  int i;
+//  for(i = 0; i < 4; i++) {
+//    if(procuraArvore(&raiz, vet[i])){
+//      printf("Elemento %d existe\n", vet[i]);
+//    } else {
+//      printf("Elemento %d nao existe\n", vet[i]);
+//    }
+//  } // v v v f
+//
+
+  
+//  Pre-ordem = {3, 2, 1, -3, 17, 8, 12, 20}
+//  Pos-ordem = {-3, 1, 2, 12, 8, 20, 17, 3}
+  // em-ordem = {-3, 1, 2, 3, 8, 12, 17, 20}
+//
+//  printf("Pre-ordem ={");
+//  impressaoPreOrdem(&raiz);
+//  printf("}\n");
+  
+//  printf("Pre-ordem ={");
+//  impressaoPosOrdem(&raiz);
+//  printf("}\n");
+  
+  // esta vazia!
 //  }
   
   return 0;
