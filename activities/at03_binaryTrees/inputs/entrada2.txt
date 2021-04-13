@@ -1,4 +1,4 @@
-<termos:cafe,soja,Brasil,sacas,municipio,xicara>
+<termos:cafe,soja,Brasil,sacas,municipio,xicaras>
 <page:1>
 O cafe e uma bebida produzida a partir dos graos torrados do fruto do cafeeiro.
 E servido tradicionalmente quente, mas tambem pode ser consumido gelado.
