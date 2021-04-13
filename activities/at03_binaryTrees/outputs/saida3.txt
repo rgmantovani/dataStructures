@@ -1,0 +1,7 @@
+durante,5
+gambiarra,1,3,5
+girias,3
+luzes,2,4,5
+palavra,1,3,4
+sentido,3
+significado,1,2
