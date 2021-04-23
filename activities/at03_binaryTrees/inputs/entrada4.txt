@@ -1,0 +1,12 @@
+<termos:guerra,inteligencia,computaçao,analise,maquina,hebert>
+<page:1>
+A inteligencia artificial e um ramo de pesquisa da ciencia da computaçao que busca, atraves de simbolos computacionais, construir mecanismos e/ou dispositivos que simulem a capacidade do ser humano de pensar, resolver problemas, ou seja, de ser inteligente. O estudo e desenvolvimento desse ramo de pesquisa tiveram inicio na Segunda Guerra Mundial. Os principais idealizadores foram os seguintes cientistas: Hebert Simon, Allen Newell, Jonh McCarthy e varios outros, que com objetivos em comum tinham a intenção de criar um “ser” que simulasse a vida do ser humano. 
+<page:2>
+O estudo da A.I. iniciou-se nos anos 50 com os cientistas Hebert Simon, Allen Newell, esses foram os pioneiros ao criarem o primeiro laboratorio de inteligencia artificial na Universidade de Carnegie Mellon. 
+<page:3>
+Com a evoluçao computacional a inteligencia artificial ganhou mais força, tendo em vista que o seu desenvolvimento possibilitou um grande avanço na analise computacional, podendo a maquina chegar a fazer analise e síntese da voz humana. No inicio os estudos sobre A.I. buscavam apenas uma forma de reproduzir a capacidade humana de pensar, mas assim como todas as pesquisas que evoluem, com essa nao foi diferente. Percebendo que esse ramo da ciencia tinha muito mais a ser descoberto, os pesquisadores e cientistas abraçaram a ideia de fazer com que uma maquina pudesse reproduzir nao so a capacidade de um ser humano pensar como tambem a capacidade de sentir, de ter criatividade, e de ter auto-aperfeiçoamento e uso da linguagem. Filmes como “O Homem bicentenario” e “A.I. (Inteligencia Artificial)” mostram claramente a vontade da maquina de se tornar ser humano, de querer se manifestar, poder ter e sentir tudo o que os humanos tem e sentem.
+<page:4>
+O progresso na principal area dessa pesquisa, que e a de fazer uma inteligencia similar a do ser humano, e lento. Porem, os estudos nessa area tem surtido efeito em varias outras areas, como o planejamento automatizado e escalonamento, jogos, programas de diagnostico medico, controle autonomo, robotica e outras mais. 
+<page:5>
+Esse ramo de pesquisa e muito conflitante, pois existem os que apoiam as pesquisas e a ideia da maquina ter vida propria, como tambem existe o lado dos que não apoiam a ideia. Para muitos a existencia de maquinas com o poder de pensar, sentir e ate ter a capacidade de realizar atividades humanas e um fato inconcebivel.
+

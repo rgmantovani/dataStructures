@@ -1,0 +1,6 @@
+analise,3
+computaçao,1
+guerra,1
+hebert,1,2
+inteligencia,1,2,3,4
+maquina,3,5
