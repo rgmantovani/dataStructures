@@ -116,19 +116,19 @@ void singleLeftRotation(PointerNodeTree *node) {
   (*node)->right = u->left;
   u->left = (*node);
   (*node)->height = 0;
-  
+
   (*node)->height = updateHeight((*node)->left, (*node)->right);
   u->height = updateHeight(u->left, u->right);
-  
+
   (*node) = u;
 }
 
 void doubleLeftRotation(PointerNodeTree *node) {
-  
+
   PointerNodeTree u, v;
   u = (*node)->right;
   v = u->left;
-  
+
   (*node)->right = v->left;
   u->left = v->right;
   v->right = u;
@@ -137,7 +137,7 @@ void doubleLeftRotation(PointerNodeTree *node) {
   (*node)->height = updateHeight((*node)->left, (*node)->right);
   u->height = updateHeight(u->left, u->right);
   v->height = updateHeight(v->left, v->right);
-  
+
   (*node) = v;
 }
 
@@ -150,11 +150,11 @@ void singleRightRotation(PointerNodeTree *node) {
   (*node)->left = u->right;
   u->right = (*node);
   (*node)->height = 0;
-  
+
   (*node)->height = updateHeight((*node)->left, (*node)->right);
   u->height = updateHeight(u->left, u->right);
-  
-  
+
+
   (*node) = u;
 }
 
@@ -169,11 +169,11 @@ void doubleRightRotation(PointerNodeTree *node) {
 
   (*node)->left = v->right;
   v->right = (*node);
-  
+
   (*node)->height = updateHeight((*node)->left, (*node)->right);
   u->height = updateHeight(u->left, u->right);
   v->height = updateHeight(v->left, v->right);
-  
+
   (*node) = v;
 }
 
@@ -181,7 +181,7 @@ void doubleRightRotation(PointerNodeTree *node) {
 /******************************************************************************/
 
 void applyRotations(PointerNodeTree *node) {
-  
+
   // left > right --> -2 (right rotations)
   if(heightAVLTree((*node)->left) > heightAVLTree((*node)->right)) {
     PointerNodeTree x = (*node)->left;
@@ -195,7 +195,7 @@ void applyRotations(PointerNodeTree *node) {
   } else {
   // right > left --> +2 (left rotations)
     PointerNodeTree y = (*node)->right;
-    if(heightAVLTree(y->right) > heightAVLTree(y->left)) {
+    if(heightAVLTree(y->right) => heightAVLTree(y->left)) {
       printf("rotação simples a esquerda\n");
       singleLeftRotation(&(*node));
     } else {
@@ -209,7 +209,7 @@ void applyRotations(PointerNodeTree *node) {
 /******************************************************************************/
 
 bool insertAVLTree(PointerNodeTree *node, Item x) {
-  
+
   if(*node == NULL) {
     (*node) = (PointerNodeTree) malloc(sizeof(NodeTree));
     (*node)->right = (*node)->left = NULL;
@@ -218,29 +218,29 @@ bool insertAVLTree(PointerNodeTree *node, Item x) {
     printf("\n @ Elemento: %d foi inserido com sucesso.\n", x.key);
     return(true);
   }
-  
+
   if((*node)->element.key == x.key) {
     printf("@ Warning: elemento %d ja existe na arvore. Não foi inserido. \n", x.key);
     return(false);
   }
-  
+
   bool ins;
   if((*node)->element.key > x.key)
     ins = insertAVLTree(&(*node)->left, x);
   else
     ins = insertAVLTree(&(*node)->right, x);
-  
+
   if( ins == false) return (false);
-  
+
   int ae, ad;
   ae = heightAVLTree((*node)->left);
   ad = heightAVLTree((*node)->right);
-  
+
   if((ad - ae == -2) || (ad - ae == 2)) {
     printf("Desbalanceamento ... ");
     applyRotations(&(*node));
   }
-  
+
   (*node)->height = updateHeight((*node)->left, (*node)->right);
   return(true);
 }
@@ -260,28 +260,28 @@ void printAVLTree(PointerNodeTree *root) {
   PointerNodeTree node;
 
   enqueue((*root), &queue, level);
-  
+
   printf("\n------------\nTree:\n");
   while(!isEmpty(&queue)) {
     previous = level;
     node = dequeue(&queue, &level);
     if(previous != level)
       printf("\n");
-    
+
     if(node->right != NULL) {
       rgt = node->right->height;
     } else {
       rgt = 0;
     }
-    
+
     if(node->left != NULL) {
       lft = node->left->height;
     } else {
       lft = 0;
     }
-    
+
     printf("%d(%d),", node->element.key, (rgt - lft));
- 
+
     if(node->left != NULL)
       enqueue(node->left, &queue, level+1);
     if(node->right != NULL)
@@ -308,18 +308,18 @@ PointerNodeTree getMaxAux (PointerNodeTree *node) {
 
 
 bool removeAVL(PointerNodeTree *node, int key) {
-  
+
   bool test;
   int h_left, h_right;
-  
+
   if((*node) == NULL) {
     printf("Não existe o elemento %d para ser removido!\n", key);
     return (false);
   }
-  
+
   // encontrei o que remover ...
   if((*node)->element.key == key) {
-  
+
     PointerNodeTree tmp = (*node);
     // case 1: sub-arvore esquerda é nula (cai aqui se for folha também)
     if((*node)->left == NULL) {
@@ -337,21 +337,21 @@ bool removeAVL(PointerNodeTree *node, int key) {
     free(tmp);
     return true;
   }
-  
+
   if((*node)->element.key > key){
     test = removeAVL(&(*node)->left, key);
   } else {
     test = removeAVL(&(*node)->right, key);
   }
-  
+
   if(test == false) return (false);
   else {
     h_left  = depthAVLTree(&(*node)->left);
     h_right = depthAVLTree(&(*node)->right);
-    
+
     if( abs(h_left - h_right) == 2 )
       applyRotations(&(*node));
-    
+
     (*node)->height = updateHeight((*node)->left, (*node)->right);
     return(true);
   }
