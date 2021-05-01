@@ -154,7 +154,6 @@ void singleRightRotation(PointerNodeTree *node) {
   (*node)->height = updateHeight((*node)->left, (*node)->right);
   u->height = updateHeight(u->left, u->right);
 
-
   (*node) = u;
 }
 
@@ -195,7 +194,7 @@ void applyRotations(PointerNodeTree *node) {
   } else {
   // right > left --> +2 (left rotations)
     PointerNodeTree y = (*node)->right;
-    if(heightAVLTree(y->right) => heightAVLTree(y->left)) {
+    if(heightAVLTree(y->right) >= heightAVLTree(y->left)) {
       printf("rotação simples a esquerda\n");
       singleLeftRotation(&(*node));
     } else {
