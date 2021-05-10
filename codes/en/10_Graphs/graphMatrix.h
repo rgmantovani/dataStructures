@@ -1,11 +1,28 @@
+#ifndef GraphMatrix_h
+#define GraphMatrix_h
 
-#ifndef graphMatrix_h
-#define graphMatrix_h
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
+typedef struct {
+  int vertices;
+  int **matrix;
+  bool isDirected;
+} GraphMatrix;
 
-//definir tipos
+//---------------------------------------------------------
+//---------------------------------------------------------
 
-// definir as funcoes
+void initGraphMatrix(GraphMatrix *graph, int V, bool isDirected);
+void printGraphMatrix(GraphMatrix *graph);
+bool insertEdgeGraphMatrix(GraphMatrix *graph, int v1, int v2);
+bool removeEdgeGraphMatrix(GraphMatrix *graph, int v1, int v2);
+bool isAdjacent(GraphMatrix *graph, int v1, int v2);
+int* getAdjacents(GraphMatrix *graph, int v, int* cont);
+void destroyGraphMatrix(GraphMatrix *graph);
 
+//---------------------------------------------------------
+//---------------------------------------------------------
 
-#endif /* graphMatrix_h */
+#endif /* GraphMatrix_h */
