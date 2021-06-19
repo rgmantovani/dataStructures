@@ -1,0 +1,7 @@
+d[0]=0 caminho=0
+d[1]=3 caminho=0,1
+d[2]=7 caminho=0,2
+d[3]=8 caminho=0,1,3
+d[4]=9 caminho=0,2,4
+d[5]=14 caminho=0,2,4,5
+d[6]=9999 caminho=
