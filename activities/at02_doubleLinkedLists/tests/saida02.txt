@@ -1,4 +1,7 @@
 {124,Ana,f,46.7,091}
 {74,Luiz,m,28.6,165}
 {28,Tamara,f,53.4,109}
-{25,Rafael Gomes Mantovani,m,50,175}
+{25,Mantovani,m,50,175}
+{14,Andre,m,100,173}
+{8,Erinaldo,m,80,180}
+{6,Muriellllll,m,60,179}
