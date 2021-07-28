@@ -1,70 +1,70 @@
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
 
-#include "PilhaEstatica.h"
+#include "StaticStacks.h"
 
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
 
-void iniciaPilhaEstatica(PilhaEstatica *pilha) {
-  pilha->topo = 0;
+void initStaticStack(StaticStack *stack) {
+  stack->top = 0;
 }
 
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
 
-bool estaVaziaPilhaEstatica(PilhaEstatica *pilha) {
-  return(pilha->topo == 0);
+bool isEmptyStaticStack(StaticStack *stack) {
+  return(stack->top == 0);
 }
 
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
 
-bool estaCheiaPilhaEstatica(PilhaEstatica *pilha){
-  return(pilha->topo == MAXTAM-1);
+bool isFullStaticStack(StaticStack *stack) {
+  return(stack->top == MAXTAM-1);
 }
 
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
 
-void empilhaPilhaEstatica(PilhaEstatica *pilha, int x){
-  if(!estaCheiaPilhaEstatica(pilha)) {
-    pilha->vetor[pilha->topo] = x;
-    pilha->topo++;
+void pushStaticStack(StaticStack *stack, int x) {
+  if(!isFullStaticStack(stack)) {
+    stack->array[ stack->top ] = x;
+    stack->top++;
   }
 }
 
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
 
-void desempilhaPilhaEstatica(PilhaEstatica *pilha, int *x) {
-  if(!estaVaziaPilhaEstatica(pilha)) {
-    *x = pilha->vetor[pilha->topo-1];
-    pilha->topo--;
+void popStaticStack(StaticStack *stack, int *x) {
+  if(!isEmptyStaticStack(stack)) {
+    *x = stack->array[stack->top-1];
+    stack->top--;
   }
 }
 
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
 
-int tamanhoPilhaEstatica(PilhaEstatica *pilha) {
-  return(pilha->topo);
+int sizeOfStaticStack(StaticStack *stack) {
+  return(stack->top);
 }
 
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
 
-int topoPilhaEstatica(PilhaEstatica *pilha) {
-  return(pilha->vetor[pilha->topo-1]);
+int topStaticStack(StaticStack *stack) {
+  return(stack->array[stack->top-1]);
 }
 
 //---------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------
 
-void imprimePilhaEstatica(PilhaEstatica *pilha) {
-  printf("Pilha = {");
-  for(int i = 0; i < tamanhoPilhaEstatica(pilha); i++) {
-    printf("%d ", pilha->vetor[i]);
+void printStaticStack(StaticStack *stack) {
+  printf("Stack = {");
+  for(int i = 0; i < sizeOfStaticStack(stack); i++) {
+    printf("%d ", stack->array[i]);
   }
   printf("}\n");
 }
