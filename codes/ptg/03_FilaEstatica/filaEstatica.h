@@ -1,33 +1,36 @@
-#ifndef filaEstatica_h
-#define filaEstatica_h
+#ifndef FilaEstatica_h
+#define FilaEstatica_h
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define MAXTAM 5
+//---------------------------------------------------------------------------------
+// Tipos
+//---------------------------------------------------------------------------------
+
+#define MAXTAM  5
 
 typedef struct {
-  int chave;
-    /* outros componentes */
-} Objeto;
-
-typedef struct {
-  Objeto array[MAXTAM];
+  int vetor[MAXTAM];
   int tamanho;
   int inicio;
   int fim;
 } FilaEstatica;
 
-void iniciaFila(FilaEstatica *fila);
-bool estaVazia(FilaEstatica *fila);
-bool estaCheia(FilaEstatica *fila);
-int tamanhoFila(FilaEstatica *fila);
-int incrementaIndice(int i);
-void enfileira(Objeto x, FilaEstatica *fila);
-void imprimeFila(FilaEstatica *fila);
-Objeto desenfileira(FilaEstatica *fila);
-Objeto inicioFila(FilaEstatica *fila);
-Objeto fimFila(FilaEstatica *fila);
+//---------------------------------------------------------------------------------
+// Funcoes
+//---------------------------------------------------------------------------------
 
-#endif /* filaEstatica_h */
+void iniciaFilaEstatica(FilaEstatica *fila);
+void enfileiraFilaEstatica(FilaEstatica *fila, int x);
+void imprimeFilaEstatica(FilaEstatica *fila);
+bool estaVaziaFilaEstatica(FilaEstatica *fila);
+bool estaCheiaFilaEstatica(FilaEstatica *fila);
+int tamanhoFilaEstatica(FilaEstatica *fila);
+int incrementaIndice(int i);
+int desenfileiraFilaEstatica(FilaEstatica *fila);
+int primeiroFilaEstatica(FilaEstatica *fila);
+int ultimoFilaEstatica(FilaEstatica *fila);
+
+#endif /* FilaEstatica_h */
