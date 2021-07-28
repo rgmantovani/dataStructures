@@ -1,27 +1,40 @@
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-#include "dynamicQueue.h"
+#include "DynamicQueue.h"
 
-void initQueue(DynamicQueue *queue) {
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void initDynamicQueue(DynamicQueue *queue) {
   queue->start = NULL;
   queue->end = NULL;
   queue->size = 0;
 }
 
-int isEmpty(DynamicQueue *queue) {
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+bool isEmptyDynamicQueue(DynamicQueue *queue) {
   return(queue->size == 0);
 }
 
-int size(DynamicQueue *queue) {
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+int sizeOfDynamicQueue(DynamicQueue *queue) {
   return (queue->size);
 }
 
-void enqueue(Item x, DynamicQueue *queue) {
-  Pointer aux;
-  aux = (Pointer) malloc(sizeof(NodeQueue));
-  aux->item = x;
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void enqueueDynamicQueue(DynamicQueue *queue, int x) {
+  
+  Pointer aux = (Pointer) malloc(sizeof(NodeQueue));
+  aux->x = x;
     
-  // first
-  if(isEmpty(queue)) {
+  if(isEmptyDynamicQueue(queue)) {
     queue->start = queue->end = aux;
     aux->next = NULL;
   } else {
@@ -32,35 +45,56 @@ void enqueue(Item x, DynamicQueue *queue) {
   queue->size++;
 }
 
-void dequeue(DynamicQueue *queue, Item *x) {
-  if(isEmpty(queue)) {
-    printf("Erro: elemento nao foi inserido, porque a fila esta cheia.\n");
-  } else {
-    *x = queue->start->item;
-        
-    Pointer aux;
-    aux = queue->start;
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void dequeueDynamicQueue(DynamicQueue *queue, int *x) {
+  if(!isEmptyDynamicQueue(queue)) {
+    *x = queue->start->x;
+    Pointer aux  = queue->start;
     queue->start = queue->start->next;
     free(aux);
     queue->size--;
   }
 }
 
-void printQueue(DynamicQueue *queue) {
-  printf("Fila = {");
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void printDynamicQueue(DynamicQueue *queue) {
+  printf("Queue = {");
   Pointer ptr;
   for(ptr = queue->start; ptr != NULL; ptr = ptr->next) {
-    printf("%d ", ptr->item.key);
+    printf("%d ", ptr->x);
   }
   printf("}\n");
 }
 
-Item first(DynamicQueue *queue) {
-  Item ret = queue->start->item;
-  return(ret);
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+int firstDynamicQueue(DynamicQueue *queue) {
+  return(queue->start->x);
 }
 
-Item last(DynamicQueue *queue) {
-  Item ret = queue->end->item;
-  return(ret);
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+int lastDynamicQueue(DynamicQueue *queue) {
+  return(queue->end->x);
 }
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void destroyDynamicQueue(DynamicQueue *queue) {
+  printf("@Destroying queue!\n");
+  int remove;
+  while(sizeOfDynamicQueue(queue)!=0) {
+    dequeueDynamicQueue(queue, &remove);
+  }
+}
+
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------

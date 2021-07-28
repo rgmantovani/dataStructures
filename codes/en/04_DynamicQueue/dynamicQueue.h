@@ -1,18 +1,18 @@
-#ifndef dynamicQueue_h
-#define dynamicQueue_h
+#ifndef DynamicQueue_h
+#define DynamicQueue_h
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-typedef struct {
-    int key;
-    /* outros componentes */
-} Item;
+//---------------------------------------------------------------------------------
+// Types
+//---------------------------------------------------------------------------------
 
 typedef struct NodeQueue *Pointer;
 
 typedef struct NodeQueue{
-    Item item;
+    int x;
     Pointer next;
 } NodeQueue;
 
@@ -22,14 +22,18 @@ typedef struct {
     int size;
 } DynamicQueue;
 
-void initQueue(DynamicQueue *queue);
-void enqueue(Item x, DynamicQueue *queue);
-void dequeue(DynamicQueue *queue, Item *x);
-void printQueue(DynamicQueue *queue);
-void destroy(DynamicQueue *queue);
-int isEmpty(DynamicQueue *queue);
-int size(DynamicQueue *queue);
-Item first(DynamicQueue *queue);
-Item last(DynamicQueue *queue);
+//---------------------------------------------------------------------------------
+// Functions
+//---------------------------------------------------------------------------------
 
-#endif /* dynamicQueue_h */
+void initDynamicQueue(DynamicQueue *queue);
+void enqueueDynamicQueue(DynamicQueue *queue, int x);
+void dequeueDynamicQueue(DynamicQueue *queue, int *x);
+void printDynamicQueue(DynamicQueue *queue);
+void destroyDynamicQueue(DynamicQueue *queue);
+bool isEmptyDynamicQueue(DynamicQueue *queue);
+int sizeOfDynamicQueue(DynamicQueue *queue);
+int firstDynamicQueue(DynamicQueue *queue);
+int lastDynamicQueue(DynamicQueue *queue);
+
+#endif /* DynamicQueue_h */

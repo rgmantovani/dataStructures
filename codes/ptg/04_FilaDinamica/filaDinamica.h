@@ -1,18 +1,18 @@
-#ifndef filaDinamica_h
-#define filaDinamica_h
+#ifndef FilaDinamica_h
+#define FilaDinamica_h
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-typedef struct {
-  int chave;
-  /* outros componentes */
-} Objeto;
+//---------------------------------------------------------------------------------
+// Tipos
+//---------------------------------------------------------------------------------
 
 typedef struct NoFila *PtrNoFila;
 
 typedef struct NoFila{
-  Objeto obj;
+  int x;
   PtrNoFila proximo;
 } NoFila;
 
@@ -22,14 +22,18 @@ typedef struct {
   int tamanho;
 } FilaDinamica;
 
-void iniciaFila(FilaDinamica *fila);
-void imprimeFila(FilaDinamica *fila);
-void enfileira(Objeto x, FilaDinamica *fila);
-void desenfileira(FilaDinamica *fila, Objeto *x);
-//Objeto desenfileira(FilaDinamica *fila);
-int estaVazia(FilaDinamica *fila);
-int tamanhoFila(FilaDinamica *fila);
-Objeto inicioFila(FilaDinamica *fila);
-Objeto fimFila(FilaDinamica *fila);
+//---------------------------------------------------------------------------------
+// Funcoes
+//---------------------------------------------------------------------------------
 
-#endif /* filaDinamica_h */
+void iniciaFilaDinamica(FilaDinamica *fila);
+void enfileiraFilaDinamica(FilaDinamica *fila, int x);
+void desenfileiraFilaDinamica(FilaDinamica *fila, int *x);
+void imprimeFilaDinamica(FilaDinamica *fila);
+void destroiFilaDinamica(FilaDinamica *fila);
+bool estaVaziaFilaDinamica(FilaDinamica *fila);
+int tamanhoFilaDinamica(FilaDinamica *fila);
+int primeiroFilaDinamica(FilaDinamica *fila);
+int ultimoFilaDinamica(FilaDinamica *fila);
+
+#endif /* FilaDinamica_h */
