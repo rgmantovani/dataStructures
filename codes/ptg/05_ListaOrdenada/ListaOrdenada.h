@@ -5,33 +5,38 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-typedef struct  {
-  int chave;
-} Objeto;
+//---------------------------------------------------------------------------------
+// Tipos
+//---------------------------------------------------------------------------------
 
 typedef struct NoLista *PtrNoLista;
 
 typedef struct NoLista {
-    Item elemento;
-    PtrNoLista proximo;
+  int x;
+  PtrNoLista proximo;
 } NoLista;
 
 typedef struct {
-    PtrNoLista primeiro;
-    int tamanho;
-} Lista;
+  PtrNoLista inicio;
+  int tamanho;
+} ListaOrdenada;
 
-void iniciaLista(Lista *list);
-void inserir(Lista *list, Objeto x);
-void imprimirLista(Lista *list);
-void destruirLista(Lista *list);
-bool estaVazia(Lista *list);
-bool pesquisar(Lista *list, int key);
-int tamanhoLista(Lista *list);
-void removeElemento(Lista *list, int chave, Objeto *item);
-void removePrimeiro(Lista *list, Objeto *item);
-void removeUltimo(Lista *list, Objeto *item);
-Objeto primeiro(Lista *list);
-Objeto ultimo(Lista *list);
+//---------------------------------------------------------------------------------
+// Funcoes
+//---------------------------------------------------------------------------------
+
+void iniciaListaOrdenada(ListaOrdenada *lista);
+void insereListaOrdenada(ListaOrdenada *lista, int x);
+void imprimeListaOrdenada(ListaOrdenada *lista);
+void destroiListaOrdenada(ListaOrdenada *lista);
+bool estaVaziaListaOrdenada(ListaOrdenada *lista);
+bool pesquisaListaOrdenada(ListaOrdenada *lista, int x);
+bool pesquisaOtimizadaListaOrdenada(ListaOrdenada *lista, int x);
+int tamanhoListaOrdenada(ListaOrdenada *lista);
+void removeListaOrdenada(ListaOrdenada *lista, int key, int *x);
+void removePrimeiroListaOrdenada(ListaOrdenada *lista, int *x);
+void removeUltimoListaOrdenada(ListaOrdenada *lista, int *x);
+int primeiroListaOrdenada(ListaOrdenada *lista);
+int ultimoListaOrdenada(ListaOrdenada *lista);
 
 #endif /* ListaOrdenada_h */
