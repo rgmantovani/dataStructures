@@ -1,77 +1,100 @@
-#include "dynamicStack.h"
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-void init(DynamicStack *stack) {
+#include "DynamicStack.h"
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void initDynamicStack(DynamicStack *stack) {
   stack->top = NULL;
   stack->size = 0;
 }
 
-int size(DynamicStack *stack) {
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+int sizeOfDynamicStack(DynamicStack *stack) {
   return(stack->size);
 }
 
-bool isEmpty(DynamicStack *stack) {
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+bool isEmptyDynamicStack(DynamicStack *stack) {
   return(stack->size == 0);
 }
 
-void push(Object obj, DynamicStack *stack) {
-    
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void pushDynamicStack(DynamicStack *stack, int x) {
   PtrStackNode aux;
-  aux = (PtrStackNode) malloc(sizeof(StackNode));
-  aux->obj = obj;
+  aux = (PtrStackNode)malloc(sizeof(StackNode));
+  aux->x = x;
   aux->next = stack->top;
   stack->top = aux;
   stack->size++;
-
 }
 
-void pop(DynamicStack *stack, Object *obj) {
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void popDynamicStack(DynamicStack *stack, int *x) {
     
-  if(isEmpty(stack)) {
-    printf(" * Erro: pilha esta vazia - elemento nao removido! \n");
-  } else {
-        
-    *obj = stack->top->obj;
-        
-    PtrStackNode aux;
-    aux = stack->top;
+  if(!isEmptyDynamicStack(stack)) {
+    *x = stack->top->x;
+    PtrStackNode aux = stack->top;
     stack->top = stack->top->next;
-        
     free(aux);
     stack->size--;
   }
 }
 
-void top(DynamicStack *stack, Object *item) {
-  if(isEmpty(stack)) {
-    printf(" * Erro: pilha esta vazia - nao ha elemento no topo! \n");
-  } else {
-    *item = stack->top->obj;
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void topDynamicStack(DynamicStack *stack, int *x) {
+  if(!isEmptyDynamicStack(stack)) {
+    *x = stack->top->x;
   }
 }
 
-void print(DynamicStack *stack) {
-  printf("Pilha = {");
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void printDynamicStack(DynamicStack *stack) {
+  printf("Stack = {");
   PtrStackNode ptr;
   for(ptr = stack->top; ptr != NULL; ptr = ptr->next) {
-    printf("%d ", ptr->obj.key);
+    printf("%d ", ptr->x);
   }
   printf("}\n");
 }
 
-void destroy(DynamicStack *stack) {
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void destroyDynamicStack(DynamicStack *stack) {
   printf("@Destroying stack!\n");
-  PtrStackNode remover;
+  PtrStackNode toRemove;
   while(stack->top!= NULL) {
-    remover = stack->top;
+    toRemove = stack->top;
     stack->top = stack->top->next;
-    free(remover);
+    free(toRemove);
   }
 }
 
-void destroy2(DynamicStack *stack) {
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void destroyDynamicStack2(DynamicStack *stack) {
   printf("@Destroying stack!\n");
-  Object aux;
-  while (!isEmpty(stack)) {
-    pop(stack, &aux);
+  int aux;
+  while(!isEmptyDynamicStack(stack)) {
+      popDynamicStack(stack, &aux);
   }
 }
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------

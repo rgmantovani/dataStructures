@@ -1,35 +1,38 @@
-
-#ifndef pilhaDinamica_h
-#define pilhaDinamica_h
+#ifndef PilhaDinamica_h
+#define PilhaDinamica_h
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
-typedef struct {
-    int chave;
-} Objeto;
+//---------------------------------------------------------------------------------
+// Tipos
+//---------------------------------------------------------------------------------
 
 typedef struct NoPilha *PtrNoPilha;
 
 typedef struct NoPilha{
-  Objeto obj;
-  PtrNoPilha proximo;
+    int x;
+    PtrNoPilha proximo;
 } NoPilha;
 
 typedef struct {
-  PtrNoPilha topo;
-  int tamanho;
+    PtrNoPilha topo;
+    int tamanho;
 } PilhaDinamica;
 
-void iniciaPilha(PilhaDinamica *p);
-bool estaVazia(PilhaDinamica *p);
-void empilha(Objeto obj, PilhaDinamica *p);
-void desempilha(PilhaDinamica *p, Objeto *obj);
-int tamanhoPilha(PilhaDinamica *p);
-void topo(PilhaDinamica *p, Objeto *obj);
-void imprimePilha(PilhaDinamica *p);
-void destroi(PilhaDinamica *p);
-void destroi2(PilhaDinamica *p);
+//---------------------------------------------------------------------------------
+// Funcoes
+//---------------------------------------------------------------------------------
 
-#endif /* pilhaDinamica_h */
+void iniciaPilhaDinamica(PilhaDinamica *pilha);
+bool estaVaziaPilhaDinamica(PilhaDinamica *pilha);
+void empilhaPilhaDinamica(PilhaDinamica *pilha, int x);
+void desempilhaPilhaDinamica(PilhaDinamica *pilha, int *x);
+int tamanhoPilhaDinamica(PilhaDinamica *pilha);
+void topoPilhaDinamica(PilhaDinamica *pilha, int *x);
+void imprimePilhaDinamica(PilhaDinamica *pilha);
+void destroiPilhaDinamica(PilhaDinamica *pilha);
+void destroiPilhaDinamica2(PilhaDinamica *pilha);
+
+#endif /* PilhaDinamica_h */

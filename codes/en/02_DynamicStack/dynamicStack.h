@@ -1,18 +1,18 @@
-#ifndef dynamicStack_h
-#define dynamicStack_h
+#ifndef DynamicStack_h
+#define DynamicStack_h
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
-typedef struct {
-    int key;
-} Object;
+//---------------------------------------------------------------------------------
+// Types
+//---------------------------------------------------------------------------------
 
 typedef struct StackNode *PtrStackNode;
 
 typedef struct StackNode{
-    Object obj;
+    int x;
     PtrStackNode next;
 } StackNode;
 
@@ -21,14 +21,18 @@ typedef struct {
     int size;
 } DynamicStack;
 
-void init(DynamicStack *stack);
-bool isEmpty(DynamicStack *stack);
-void push(Object obj, DynamicStack *stack);
-void pop(DynamicStack *stack, Object *obj);
-int size(DynamicStack *stack);
-void top(DynamicStack *stack, Object *obj);
-void print(DynamicStack *stack);
-void destroy(DynamicStack *stack);
-void destroy2(DynamicStack *stack);
+//---------------------------------------------------------------------------------
+// Functions
+//---------------------------------------------------------------------------------
 
-#endif /* dynamicStack_h */
+void initDynamicStack(DynamicStack *stack);
+bool isEmptyDynamicStack(DynamicStack *stack);
+void pushDynamicStack(DynamicStack *stack, int x);
+void popDynamicStack(DynamicStack *stack, int *x);
+int sizeOfDynamicStack(DynamicStack *stack);
+void topDynamicStack(DynamicStack *stack, int *x);
+void printDynamicStack(DynamicStack *stack);
+void destroyDynamicStack(DynamicStack *stack);
+void destroyDynamicStack2(DynamicStack *stack);
+
+#endif /* DynamicStack_h */

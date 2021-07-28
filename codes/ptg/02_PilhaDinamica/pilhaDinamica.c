@@ -1,75 +1,100 @@
-#include "pilhaDinamica.h"
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-void iniciaPilha(PilhaDinamica *p) {
-  p->topo = NULL;
-  p->tamanho = 0;
+#include "PilhaDinamica.h"
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void iniciaPilhaDinamica(PilhaDinamica *pilha) {
+  pilha->topo = NULL;
+  pilha->tamanho = 0;
 }
 
-int tamanhoPilha(PilhaDinamica *p) {
-  return(p->tamanho);
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+int tamanhoPilhaDinamica(PilhaDinamica *pilha) {
+  return(pilha->tamanho);
 }
 
-bool estaVazia(PilhaDinamica *p) {
-  return(p->tamanho == 0);
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+bool estaVaziaPilhaDinamica(PilhaDinamica *pilha) {
+  return(pilha->tamanho == 0);
 }
 
-void empilha(Objeto obj, PilhaDinamica *p) {
-  
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void empilhaPilhaDinamica(PilhaDinamica *pilha, int x) {
   PtrNoPilha aux;
-  aux = (PtrNoPilha) malloc(sizeof(NoPilha));
- 
-  aux->obj = obj;
-  aux->proximo = p->topo;
-  p->topo = aux;
-  p->tamanho = p->tamanho + 1;
+  aux = (PtrNoPilha)malloc(sizeof(NoPilha));
+  aux->x = x;
+  aux->proximo = pilha->topo;
+  pilha->topo = aux;
+  pilha->tamanho++;
 }
 
-void desempilha(PilhaDinamica *p, Objeto *item) {
-  if(estaVazia(p)) {
-    printf(" * Erro: pilha esta vazia - elemento nao removido! \n");
-  } else {
-        
-    *item = p->topo->obj;
-    PtrNoPilha aux;
-    aux = p->topo;
-    p->topo = p->topo->proximo;
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void desempilhaPilhaDinamica(PilhaDinamica *pilha, int *x) {
+    
+  if(!estaVaziaPilhaDinamica(pilha)) {
+    *x = pilha->topo->x;
+    PtrNoPilha aux = pilha->topo;
+    pilha->topo = pilha->topo->proximo;
     free(aux);
-    p->tamanho = p->tamanho - 1;
+    pilha->tamanho--;
   }
 }
 
-void topo(PilhaDinamica *p, Objeto *obj) {
-  if(estaVazia(p)) {
-    printf(" * Erro: pilha esta vazia - nao ha elemento no topo! \n");
-  } else {
-    *obj = p->topo->obj;
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void topoPilhaDinamica(PilhaDinamica *pilha, int *x) {
+  if(!estaVaziaPilhaDinamica(pilha)) {
+    *x = pilha->topo->x;
   }
 }
 
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-void imprimePilha(PilhaDinamica *p) {
+void imprimePilhaDinamica(PilhaDinamica *pilha) {
   printf("Pilha = {");
   PtrNoPilha ptr;
-  for(ptr = p->topo; ptr != NULL; ptr = ptr->proximo) {
-    printf("%d ", ptr->obj.chave);
+  for(ptr = pilha->topo; ptr != NULL; ptr = ptr->proximo) {
+    printf("%d ", ptr->x);
   }
   printf("}\n");
 }
 
-void destroi(PilhaDinamica *p) {
-  printf("@Destroying stack!\n");
-  PtrNoPilha remover;
-  while(p->topo!= NULL) {
-    remover = p->topo;
-    p->topo = p->topo->proximo;
-    free(remover);
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void destroiPilhaDinamica(PilhaDinamica *pilha) {
+  printf("@Destruindo pilha!\n");
+  PtrNoPilha toRemove;
+  while(pilha->topo!= NULL) {
+    toRemove = pilha->topo;
+    pilha->topo = pilha->topo->proximo;
+    free(toRemove);
   }
 }
 
-void destroi2(PilhaDinamica *p) {
-  printf("@Destroying stack!\n");
-  Objeto aux;
-  while (!estaVazia(p)){
-    desempilha(p, &aux);
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void destroiPilhaDinamica2(PilhaDinamica *pilha) {
+  printf("@Destruindo pilha!\n");
+  int aux;
+  while(!estaVaziaPilhaDinamica(pilha)) {
+      desempilhaPilhaDinamica(pilha, &aux);
   }
 }
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
