@@ -1,8 +1,3 @@
-//
-//  DoubleLinkedList.h
-//  Created by Rafael Gomes Mantovani on 15/04/19.
-//
-
 #ifndef DoubleLinkedList_h
 #define DoubleLinkedList_h
 
@@ -10,14 +5,14 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-typedef struct  {
-    int key;
-} Item;
+//---------------------------------------------------------------------------------
+// types
+//---------------------------------------------------------------------------------
 
 typedef struct NodeList *Pointer;
 
 typedef struct NodeList {
-    Item element;
+    int element;
     Pointer next;
     Pointer previous;
 } NodeList;
@@ -27,18 +22,25 @@ typedef struct {
     int size;
 } DoubleLinkedList;
 
-void initList(DoubleLinkedList *list);
-void printList(DoubleLinkedList *list);
-void printInverseList(DoubleLinkedList *list);
-void destroyList(DoubleLinkedList *list);
-bool insert(DoubleLinkedList *list, Item x);
-bool isEmpty(DoubleLinkedList *list);
-bool search(DoubleLinkedList *list, int key);
-bool removeElement(DoubleLinkedList *list, int key, Item *item);
-bool removeFirst(DoubleLinkedList *list, Item *item);
-bool removeLast(DoubleLinkedList *list, Item *item);
-int sizeOfList(DoubleLinkedList *list);
-Item first(DoubleLinkedList *list);
-Item last(DoubleLinkedList *list);
+//---------------------------------------------------------------------------------
+//Functions
+//---------------------------------------------------------------------------------
+
+void initDoubleList(DoubleLinkedList *list);
+void printDoubleList(DoubleLinkedList *list);
+void printReverseDoubleList(DoubleLinkedList *list);
+void destroyDoubleList(DoubleLinkedList *list);
+bool insertDoubleList(DoubleLinkedList *list, int x);
+bool isEmptyDoubleList(DoubleLinkedList *list);
+bool searchDoubleList(DoubleLinkedList *list, int key);
+bool removeDoubleList(DoubleLinkedList *list, int key, int *item);
+bool removeFirstDoubleList(DoubleLinkedList *list, int *item);
+bool removeLastDoubleList(DoubleLinkedList *list, int *item);
+int sizeOfDoubleList(DoubleLinkedList *list);
+int firstDoubleList(DoubleLinkedList *list);
+int lastDoubleList(DoubleLinkedList *list);
 
 #endif /* DoubleLinkedList_h */
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
