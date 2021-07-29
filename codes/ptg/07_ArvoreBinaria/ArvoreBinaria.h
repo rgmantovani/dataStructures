@@ -1,5 +1,3 @@
-//
-//  ArvoreBinaria.h
 
 #ifndef ArvoreBinaria_h
 #define ArvoreBinaria_h
@@ -8,34 +6,38 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-typedef struct{
-    int chave;
-} Objeto;
+//---------------------------------------------------------------------------------
+// Tipos
+//---------------------------------------------------------------------------------
 
-typedef struct NodeTree *PtrArvore;
+typedef struct NoArvoreBinaria *PtrNoArvoreBinaria;
 
-typedef struct NoArvore {
-    Objeto elemento;
-    PtrArvore left;
-    PtrArvore right;
-} NoArvore;
+typedef struct NoArvoreBinaria {
+  int x;
+  PtrNoArvoreBinaria filhoEsquerda;
+  PtrNoArvoreBinaria filhoDireita;
+} NoArvoreBinaria;
 
-int numeroNosArvore(PtrArvore *node);
-int alturaArvore(PtrArvore *node);
-void iniciaArvore(PtrArvore *node);
-void destroiArvore(PtrArvore *node);
-void preOrdem(PtrArvore *node);
-void posOrdem(PtrArvore *node);
-void EmOrdem(PtrArvore *node);
-bool insereItem(PtrArvore *node, Objeto x);
-bool procuraItem(PtrArvore *node, int key, Objeto *ret);
-bool estaVazia(PtrArvore *node);
-bool removeItem(PtrArvore *node, int key);
-PtrArvore maximo(PtrArvore *node);
-PtrArvore maximoIterativo(PtrArvore *node);
-PtrArvore minimo(PtrArvore *node);
-PtrArvore minimoIterativo(PtrArvore *node);
-PtrArvore getMinAux(PtrArvore *node); //usado na remoção
-PtrArvore getMaxAux(PtrArvore *node); //usado na remoção
+//---------------------------------------------------------------------------------
+// Funcoes
+//---------------------------------------------------------------------------------
+
+int tamanhoArvoreBinaria(PtrNoArvoreBinaria *node);
+int profundidadeArvoreBinaria(PtrNoArvoreBinaria *node);
+void iniciaArvoreBinaria(PtrNoArvoreBinaria *node);
+void destroiArvoreBinaria(PtrNoArvoreBinaria *node);
+void preOrdemArvoreBinaria(PtrNoArvoreBinaria *node);
+void posOrdemArvoreBinaria(PtrNoArvoreBinaria *node);
+void EmOrdemArvoreBinaria(PtrNoArvoreBinaria *node);
+bool insereArvoreBinaria(PtrNoArvoreBinaria *node, int x);
+bool pesquisaArvoreBinaria(PtrNoArvoreBinaria *node, int x);
+bool estaVaziaArvoreBinaria(PtrNoArvoreBinaria *node);
+bool removeArvoreBinaria(PtrNoArvoreBinaria *node, int key);
+PtrNoArvoreBinaria maximoArvoreBinaria(PtrNoArvoreBinaria *node);
+PtrNoArvoreBinaria maximoArvoreBinariaIterativo(PtrNoArvoreBinaria *node);
+PtrNoArvoreBinaria minimoArvoreBinaria(PtrNoArvoreBinaria *node);
+PtrNoArvoreBinaria minimoArvoreBinariaIterativo(PtrNoArvoreBinaria *node);
+PtrNoArvoreBinaria getMinAuxArvoreBinaria(PtrNoArvoreBinaria *node);
+PtrNoArvoreBinaria getMaxAuxArvoreBinaria(PtrNoArvoreBinaria *node);
 
 #endif /* ArvoreBinaria_h */

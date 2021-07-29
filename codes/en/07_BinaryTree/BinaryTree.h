@@ -1,11 +1,3 @@
-//
-//  BinaryTree.h
-//  BinaryTrees
-//
-//  Created by Rafael Gomes Mantovani on 25/04/19.
-//  Copyright © 2019 Rafael Gomes Mantovani. All rights reserved.
-//
-
 #ifndef BinaryTree_h
 #define BinaryTree_h
 
@@ -13,34 +5,41 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-typedef struct{
-  int key;
-} Object;
+//---------------------------------------------------------------------------------
+// types
+//---------------------------------------------------------------------------------
 
-typedef struct NodeTree *PtrTree;
+typedef struct NodeBinaryTree *PtrBinaryTree;
 
-typedef struct NodeTree {
-  Object element;
-  PtrTree left;
-  PtrTree right;
-} NodeTree;
+typedef struct NodeBinaryTree {
+  int x;
+  PtrBinaryTree left;
+  PtrBinaryTree right;
+} NodeBinaryTree;
 
-int sizeTree(PtrTree *node);
-int maxDepth(PtrTree *node);
-void initTree(PtrTree *node);
-void destroyTree(PtrTree *node);
-void preOrder(PtrTree *node);
-void posOrder(PtrTree *node);
-void inOrder(PtrTree *node);
-bool insertItem(PtrTree *node, Object x);
-bool findItem(PtrTree *node, int key, Object *ret);
-bool isEmpty(PtrTree *node);
-bool removeItem(PtrTree *node, int key);
-PtrTree maximum(PtrTree *node);
-PtrTree maximumIterative(PtrTree *node);
-PtrTree minimum(PtrTree *node);
-PtrTree minimumIterative(PtrTree *node);
-PtrTree getMinAux (PtrTree *node); //usado na remoção
-PtrTree getMaxAux (PtrTree *node); //usado na remoção
+//---------------------------------------------------------------------------------
+// functions
+//---------------------------------------------------------------------------------
+
+int sizeOfBinaryTree(PtrBinaryTree *node);
+int maxDepthBinaryTree(PtrBinaryTree *node);
+void initBinaryTree(PtrBinaryTree *node);
+void destroyBinaryTree(PtrBinaryTree *node);
+void preOrderBinaryTree(PtrBinaryTree *node);
+void posOrderBinaryTree(PtrBinaryTree *node);
+void inOrderBinaryTree(PtrBinaryTree *node);
+bool insertBinaryTree(PtrBinaryTree *node, int x);
+bool searchBinaryTree(PtrBinaryTree *node, int key);
+bool isEmptyBinaryTree(PtrBinaryTree *node);
+bool removeBinaryTree(PtrBinaryTree *node, int key);
+PtrBinaryTree maximumBinaryTree(PtrBinaryTree *node);
+PtrBinaryTree maximumIterativeBinaryTree(PtrBinaryTree *node);
+PtrBinaryTree minimumBinaryTree(PtrBinaryTree *node);
+PtrBinaryTree minimumIterativeBinaryTree(PtrBinaryTree *node);
+PtrBinaryTree getMinAuxBinaryTree(PtrBinaryTree *node);
+PtrBinaryTree getMaxAuxBinaryTree(PtrBinaryTree *node); 
 
 #endif /* BinaryTree_h */
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------

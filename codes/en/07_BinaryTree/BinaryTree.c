@@ -1,229 +1,208 @@
-//****************************************************************************
-//****************************************************************************
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
 #include "BinaryTree.h"
 
-void initTree(PtrTree *node) {
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
+void initBinaryTree(PtrBinaryTree *node) {
   *node = NULL;
 }
 
-//****************************************************************************
-//****************************************************************************
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-bool isEmpty(PtrTree *node) {
+bool isEmptyBinaryTree(PtrBinaryTree *node) {
   return(*node == NULL);
 }
 
-//****************************************************************************
-//****************************************************************************
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-bool insertItem(PtrTree *node, Object x) {
+bool insertBinaryTree(PtrBinaryTree *node, int x) {
 
   if(*node == NULL) {
-    (*node) = (PtrTree) malloc(sizeof(NodeTree));
+    (*node) = (PtrBinaryTree)malloc(sizeof(NodeBinaryTree));
     (*node)->right = (*node)->left = NULL;
-    (*node)->element = x;
-    printf(" @ Elemento: %d foi inserido com sucesso.\n", x.key);
+    (*node)->x = x;
     return(true);
   }
 
-  if((*node)->element.key == x.key) {
-    printf("@ Warning: elemento %d ja existe na arvore. Não foi inserido. \n", x.key);
-    return(false);
-  }
+  if((*node)->x == x) return(false);
 
-  if((*node)->element.key > x.key) {
-    return(insertItem(&(*node)->left, x));
+  if((*node)->x > x) {
+    return(insertBinaryTree(&(*node)->left, x));
   } else {
-    return(insertItem(&(*node)->right, x));
+    return(insertBinaryTree(&(*node)->right, x));
   }
 }
 
-//****************************************************************************
-//****************************************************************************
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
+bool searchBinaryTree(PtrBinaryTree *node, int key) {
+ 
+  if(*node == NULL)     return(false);
+  if((*node)->x == key) return(true);
 
-bool findItem(PtrTree *node, int key, Object *ret) {
-  if(*node == NULL) {
-    printf(" # Elemento % d não está na arvore.\n", key);
-    return(false);
-  }
-  if((*node)->element.key == key) {
-    *ret = (*node)->element;
-    printf(" # Elemento: %d, foi encontado na arvore.\n", key);
-    return(true);
-  }
-  if((*node)->element.key > key){
-    return(findItem(&(*node)->left, key, ret));
+  
+  if((*node)->x > key){
+    return(searchBinaryTree(&(*node)->left, key));
   } else {
-    return(findItem(&(*node)->right, key, ret));
+    return(searchBinaryTree(&(*node)->right, key));
   }
 }
 
-//****************************************************************************
-//****************************************************************************
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-void destroyTree(PtrTree *node) {
+void destroyBinaryTree(PtrBinaryTree *node) {
   if((*node) != NULL) {
-    destroyTree(&(*node)->left);
-    destroyTree(&(*node)->right);
+    destroyBinaryTree(&(*node)->left);
+    destroyBinaryTree(&(*node)->right);
     free(*node);
     *node = NULL;
   }
 }
 
-//****************************************************************************
-//****************************************************************************
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-int sizeTree(PtrTree *node) {
+int sizeOfBinaryTree(PtrBinaryTree *node) {
   if ((*node) == NULL) return 0;
   else {
-    return(sizeTree(&(*node)->left) + 1 + sizeTree(&(*node)->right));
+    return(sizeOfBinaryTree(&(*node)->left) + 1 + sizeOfBinaryTree(&(*node)->right));
   }
 }
 
-//****************************************************************************
-//****************************************************************************
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-
-int maxDepth(PtrTree *node) {
+int maxDepthBinaryTree(PtrBinaryTree *node){
   if ((*node) == NULL) return 0;
   else {
    
-    int lDepth = maxDepth(&(*node)->left);
-    int rDepth = maxDepth(&(*node)->right);
+    int lDepth = maxDepthBinaryTree(&(*node)->left);
+    int rDepth = maxDepthBinaryTree(&(*node)->right);
 
-    if (lDepth > rDepth)
-      return(lDepth+1);
-    else return(rDepth+1);
+    if (lDepth > rDepth) return(lDepth+1);
+    else                 return(rDepth+1);
   }
 }
 
-//****************************************************************************
-//****************************************************************************
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-
-PtrTree maximum(PtrTree *node) {
-  PtrTree ret;
+PtrBinaryTree maximumBinaryTree(PtrBinaryTree *node) {
+  PtrBinaryTree ret;
   if((*node)->right == NULL) {
     ret = (*node);
     return(ret);
   }
-  return(maximum(&(*node)->right));
+  return(maximumBinaryTree(&(*node)->right));
 }
 
-PtrTree maximumIterative(PtrTree *node) {
-  PtrTree ret = (*node);
+PtrBinaryTree maximumIterativeBinaryTree(PtrBinaryTree *node) {
+  PtrBinaryTree ret = (*node);
   while(ret->right != NULL) {
     ret = ret->right;
   }
   return(ret);
 }
 
-PtrTree minimum(PtrTree *node) {
-  PtrTree ret = (*node);
+PtrBinaryTree minimumBinaryTree(PtrBinaryTree *node) {
+  PtrBinaryTree ret = (*node);
   if((*node)->left == NULL) {
     ret = (*node);
     return(ret);
   }
-  return(minimum(&(*node)->left));
+  return(minimumBinaryTree(&(*node)->left));
 }
 
-PtrTree minimumIterative(PtrTree *node) {
-  PtrTree ret = (*node);
+PtrBinaryTree minimumIterativeBinaryTree(PtrBinaryTree *node) {
+  PtrBinaryTree ret = (*node);
   while(ret->left != NULL) {
     ret = ret->left;
   }
   return(ret);
 }
 
-//****************************************************************************
-//****************************************************************************
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-
-void preOrder(PtrTree *node) {
+void preOrderBinaryTree(PtrBinaryTree *node) {
   if(*node == NULL) return;
-  printf("%d ", (*node)->element.key);
-  preOrder(&(*node)->left);
-  preOrder(&(*node)->right);
+  printf("%d ", (*node)->x);
+  preOrderBinaryTree(&(*node)->left);
+  preOrderBinaryTree(&(*node)->right);
 }
 
-void posOrder(PtrTree *node) {
+void posOrderBinaryTree(PtrBinaryTree *node) {
   if(*node == NULL) return;
-  posOrder(&(*node)->left);
-  posOrder(&(*node)->right);
-  printf("%d ", (*node)->element.key);
+  posOrderBinaryTree(&(*node)->left);
+  posOrderBinaryTree(&(*node)->right);
+  printf("%d ", (*node)->x);
 }
 
-void inOrder(PtrTree *node) {
+void inOrderBinaryTree(PtrBinaryTree *node) {
   if(*node == NULL) return;
-  inOrder(&(*node)->left);
-  printf("%d ", (*node)->element.key);
-  inOrder(&(*node)->right);
+  inOrderBinaryTree(&(*node)->left);
+  printf("%d ", (*node)->x);
+  inOrderBinaryTree(&(*node)->right);
 }
-//****************************************************************************
-//****************************************************************************
 
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-PtrTree getMaxAux (PtrTree *node) {
-  PtrTree ret;
+PtrBinaryTree getMaxAuxBinaryTree (PtrBinaryTree *node) {
+  PtrBinaryTree ret;
   if((*node)->right == NULL) {
     ret = (*node);
     (*node) = (*node)->left;
     return(ret);
   }
-  return(getMaxAux(&(*node)->right));
+  return(getMaxAuxBinaryTree(&(*node)->right));
 }
 
-PtrTree getMinAux (PtrTree *node) {
-  PtrTree ret;
+PtrBinaryTree getMinAuxBinaryTree (PtrBinaryTree *node) {
+  PtrBinaryTree ret;
   if((*node)->left == NULL) {
     ret = (*node);
     (*node) = (*node)->right;
     return(ret);
   }
-  return(getMinAux(&(*node)->left));
+  return(getMinAuxBinaryTree(&(*node)->left));
 }
 
-//****************************************************************************
-//****************************************************************************
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
-bool removeItem(PtrTree *node, int key) {
+bool removeBinaryTree(PtrBinaryTree *node, int key) {
   
-  // chegou em uma folha, não tem o que remover
-  if((*node) == NULL) {
-    printf("Não existe o elemento %d para ser removido!\n", key);
-    return (false);
-  }
-  
-  // encontrei o que remover ...
-  if((*node)->element.key == key) {
-    
-    PtrTree tmp = (*node);
-    
-    // case 1: sub-arvore esquerda é nula (cai aqui se for folha também)
+  if((*node) == NULL) return (false);
+
+  if((*node)->x == key) {
+    PtrBinaryTree tmp = (*node);
     if((*node)->left == NULL) {
       (*node) = (*node)->right;
     }
-    // case 2: sub-arvore direita é nula (poderia cair aqui tb no caso de folha)
     else if((*node)->right == NULL) {
         (*node) = (*node)->left;
     } else {
-      // case 3: ambas subarvores existem: pegar o maior elemento da sub-arvore da esquerda
-      tmp = getMaxAux(&(*node)->left);
-      // tmp = getMinAux(&(*node)->right);
-      (*node)->element = tmp->element;
+      tmp = getMaxAuxBinaryTree(&(*node)->left);
+      (*node)->x = tmp->x;
     }
     free(tmp);
     return true;
   }
   
-  if((*node)->element.key > key){
-    return(removeItem(&(*node)->left, key));
+  if((*node)->x > key){
+    return(removeBinaryTree(&(*node)->left, key));
   } else {
-    return(removeItem(&(*node)->right, key));
+    return(removeBinaryTree(&(*node)->right, key));
   }
 }
 
-//******************************************************************************/
-//******************************************************************************/
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
