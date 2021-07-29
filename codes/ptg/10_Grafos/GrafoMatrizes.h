@@ -5,6 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//---------------------------------------------------------
+// Tipos
+//---------------------------------------------------------
+
 typedef struct {
   int vertices;
   int **matriz;
@@ -12,6 +16,7 @@ typedef struct {
 } GrafoMatriz;
 
 //---------------------------------------------------------
+// Funções
 //---------------------------------------------------------
 
 void iniciaGrafoMatriz(GrafoMatriz *grafo, int V, bool direcionado);
@@ -23,3 +28,6 @@ int* retornarAdjacentes(GrafoMatriz *grafo, int v, int* cont);
 void destruirGrafoMatriz(GrafoMatriz *grafo);
 
 #endif /* GrafoMatrizes_h */
+
+//---------------------------------------------------------
+//---------------------------------------------------------

@@ -5,6 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//---------------------------------------------------------
+// Types
+//---------------------------------------------------------
+
 typedef struct {
   int vertices;
   int **matrix;
@@ -12,6 +16,7 @@ typedef struct {
 } GraphMatrix;
 
 //---------------------------------------------------------
+// Functions
 //---------------------------------------------------------
 
 void initGraphMatrix(GraphMatrix *graph, int V, bool isDirected);
@@ -22,7 +27,7 @@ bool isAdjacent(GraphMatrix *graph, int v1, int v2);
 int* getAdjacents(GraphMatrix *graph, int v, int* cont);
 void destroyGraphMatrix(GraphMatrix *graph);
 
-//---------------------------------------------------------
-//---------------------------------------------------------
-
 #endif /* GraphMatrix_h */
+
+//---------------------------------------------------------
+//---------------------------------------------------------

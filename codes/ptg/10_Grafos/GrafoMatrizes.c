@@ -1,3 +1,6 @@
+//---------------------------------------------------------
+//---------------------------------------------------------
+
 #include "GrafoMatrizes.h"
 
 //---------------------------------------------------------
@@ -5,17 +8,18 @@
 
 void iniciaGrafoMatriz(GrafoMatriz *grafo, int V, bool direcionado){
   
-  int i, j;
   grafo->direcionado = direcionado;
   grafo->vertices = V;
 
-  // matrix memmory allocation
+  int i, j;
+
+  // alocação de memória para a matriz
   grafo->matriz = malloc (grafo->vertices * sizeof (int*)) ;
   for (i=0; i < grafo->vertices; i++) {
     grafo->matriz[i] = malloc(grafo->vertices * sizeof (int)) ;
   }
 
-  // initialize matrix with 0s
+  // inicializar todas as posições da matriz com 0
   for(i = 0; i < grafo->vertices; i++) {
     for(j = 0; j < grafo->vertices; j++) {
       grafo->matriz[i][j] = 0;
@@ -25,6 +29,7 @@ void iniciaGrafoMatriz(GrafoMatriz *grafo, int V, bool direcionado){
 
 //---------------------------------------------------------
 //---------------------------------------------------------
+
 void imprimeGrafoMatriz(GrafoMatriz *grafo) {
   
   printf("---------------\n");
@@ -49,6 +54,7 @@ void imprimeGrafoMatriz(GrafoMatriz *grafo) {
 
 //---------------------------------------------------------
 //---------------------------------------------------------
+
 bool insereArestaGrafoMatriz(GrafoMatriz *grafo, int v1, int v2) {
   
   if(v1 >= 0 && v1 < grafo->vertices &&
