@@ -1,0 +1,2 @@
+computador,6,7
+hacker,4,7
