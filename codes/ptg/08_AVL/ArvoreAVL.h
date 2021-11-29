@@ -1,3 +1,6 @@
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
+
 #ifndef ArvoreAVL_h
 #define ArvoreAVL_h
 
@@ -5,50 +8,47 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-/******************************************************************************/
-/******************************************************************************/
+//---------------------------------------------------------------------------------
+// Tipos
+//---------------------------------------------------------------------------------
 
-typedef struct {
-    int chave;
-} Item;
+typedef struct NoAVL *PtrNoAVL;
 
-typedef struct NoArvoreAVL *PointeiroArvoreAVL;
+typedef struct NoAVL {
+  int chave;
+  PtrNoAVL direita;
+  PtrNoAVL esquerda;
+  //fator de balanceamento
+  int altura;
+} NoAVL;
 
-typedef struct NoArvoreAVL {
-    Item elemento;
-    PointeiroArvoreAVL direita;
-    PointeiroArvoreAVL esquerda;
-    int altura;
-} NodeNoArvoreAVLTree;
+//---------------------------------------------------------------------------------
+// Funcoes
+//---------------------------------------------------------------------------------
 
-/******************************************************************************/
-/******************************************************************************/
+void iniciaArvoreAVL(PtrNoAVL *node);
+void preOrdemArvoreAVL(PtrNoAVL *node);
+void posOrdemArvoreAVL(PtrNoAVL *node);
+void emOrdemArvoreAVL(PtrNoAVL *node);
+void destroiArvoreAVL(PtrNoAVL *node);
+void rotacaoSimplesEsquerda(PtrNoAVL *node);
+void rotacaoDuplaEsquerda(PtrNoAVL *node);
+void rotacaoSimplesDireita(PtrNoAVL *node);
+void rotacaoDuplaDireita(PtrNoAVL *node);
+void aplicarRotacoes(PtrNoAVL *node);
+bool estaVaziaArvoreAVL(PtrNoAVL *node);
+bool pesquisaArvoreAVL(PtrNoAVL *node, int x);
+bool insereArvoreAVL(PtrNoAVL *node, int x);
+bool removeArvoreAVL(PtrNoAVL *node, int x);
+int profundidadeArvoreAVL(PtrNoAVL *node);
+int alturaArvoreAVL(PtrNoAVL node);
+int atualizaAlturaArvoreAVL( PtrNoAVL esquerda, PtrNoAVL direita);
+PtrNoAVL getMaxAuxArvoreAVL (PtrNoAVL *node);
 
-void iniciaArvoreAVL(PointeiroArvoreAVL *node);
-bool estaVaziaArvoreAVL(PointeiroArvoreAVL *node);
-
-void preOrdem(PointeiroArvoreAVL *node);
-void posOrdem(PointeiroArvoreAVL *node);
-void emOrdem(PointeiroArvoreAVL *node);
-
-int alturaArvoreAVL(PointeiroArvoreAVL *node);
-int atualizaAlturaArvoreAVL(PointeiroArvoreAVL esquerda, PointeiroArvoreAVL direita);
-
-bool pesquisaArvoreAVL(PointeiroArvoreAVL *node);
-void destruirArvoreAVL(PointeiroArvoreAVL *node);
-
-void aplicarRotacoes(PointeiroArvoreAVL *node);
-
-void rotacaoSimplesEsquerda(PointeiroArvoreAVL *node);
-void rotacaoSimplesDireita(PointeiroArvoreAVL *node);
-void rotacaoDuplaEsquerda(PointeiroArvoreAVL *node);
-void rotacaoDuplaDireita(PointeiroArvoreAVL *node);
-
-bool inserirArvoreAVL(PointeiroArvoreAVL *node, Item x);
-void imprimeArvoreAVLNivel(PointeiroArvoreAVL *node);
-
-
-/******************************************************************************/
-/******************************************************************************/
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
 
 #endif /* ArvoreAVL_h */
+
+//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------
